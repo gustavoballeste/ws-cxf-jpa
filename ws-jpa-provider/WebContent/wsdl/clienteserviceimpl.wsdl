@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ClienteServiceImplService" targetNamespace="http://service.smartcities.itsimple.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.smartcities.itsimple.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.smartcities.itsimple.com.br/" schemaLocation="clienteserviceimpl_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="buscar">
+    <wsdl:part name="parameters" element="tns:buscar">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarResponse">
+    <wsdl:part name="parameters" element="tns:buscarResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cadastrar">
+    <wsdl:part name="parameters" element="tns:cadastrar">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cadastrarResponse">
+    <wsdl:part name="parameters" element="tns:cadastrarResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part name="Exception" element="tns:Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClienteService">
+    <wsdl:operation name="cadastrar">
+      <wsdl:input name="cadastrar" message="tns:cadastrar">
+    </wsdl:input>
+      <wsdl:output name="cadastrarResponse" message="tns:cadastrarResponse">
+    </wsdl:output>
+      <wsdl:fault name="Exception" message="tns:Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <wsdl:input name="buscar" message="tns:buscar">
+    </wsdl:input>
+      <wsdl:output name="buscarResponse" message="tns:buscarResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClienteServiceImplServiceSoapBinding" type="tns:ClienteService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="cadastrar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="cadastrar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cadastrarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="buscar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="buscar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="buscarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClienteServiceImplService">
+    <wsdl:port name="ClienteServiceImplPort" binding="tns:ClienteServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/ws-jpa-provider/services/ClienteServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

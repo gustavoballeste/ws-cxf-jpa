@@ -1,0 +1,39 @@
+<xs:schema xmlns:tns="http://service.smartcities.itsimple.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.smartcities.itsimple.com.br/">
+  <xs:element name="Cliente" type="tns:cliente"/>
+  <xs:element name="buscar" type="tns:buscar"/>
+  <xs:element name="buscarResponse" type="tns:buscarResponse"/>
+  <xs:element name="cadastrar" type="tns:cadastrar"/>
+  <xs:element name="cadastrarResponse" type="tns:cadastrarResponse"/>
+  <xs:complexType name="cadastrar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:cliente"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cliente">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="idCliente" type="xs:int"/>
+      <xs:element name="nome " type="xs:string"/>
+      <xs:element name="sobrenome" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cadastrarResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="buscar">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:cliente"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"/>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
